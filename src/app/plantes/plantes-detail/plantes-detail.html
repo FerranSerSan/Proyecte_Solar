@@ -1,0 +1,83 @@
+<div class="container py-5">
+  <div class="row justify-content-center">
+    <div class="col-12 col-lg-8">
+
+      <div class="card shadow border-0">
+        
+        <!-- Imagen -->
+        <div class="d-flex justify-content-center align-items-center bg-light"
+             style="height: 300px;">
+          <img
+            src="{{ planta().foto }}"
+            alt="{{ planta().nom }}"
+            class="img-fluid"
+            style="max-height: 260px; object-fit: contain;"
+          >
+        </div>
+
+        <div class="card-body">
+          
+          <!-- Título -->
+          <h2 class="card-title text-center fw-bold mb-3">
+            {{ planta().nom }}
+          </h2>
+          
+
+          <hr>
+
+          <!-- Datos -->
+          <div class="row g-3">
+
+            <div class="col-12 col-md-6">
+              <div class="border rounded p-3 h-100">
+                <h6 class="text-muted mb-1">📍 Ubicación</h6>
+                <p class="mb-0">
+                  Lat: {{ planta().ubicacio.latitude }}<br>
+                  Lng: {{ planta().ubicacio.longitude }}
+                </p>
+              </div>
+            </div>
+
+            <div class="col-12 col-md-6">
+              <div class="border rounded p-3 h-100">
+                <h6 class="text-muted mb-1">🌱 Capacidad</h6>
+                <p class="mb-0">
+                  {{ planta().capacitat }} unidades
+                </p>
+              </div>
+            </div>
+
+            <div class="col-12 col-md-6">
+              <div class="border rounded p-3 h-100">
+                <h6 class="text-muted mb-1">👤 Usuario</h6>
+                <p class="mb-0">
+                  {{ planta().user }}
+                </p>
+              </div>
+            </div>
+
+            <div class="col-12 col-md-6">
+              <div class="border rounded p-3 h-100">
+                <h6 class="text-muted mb-1">🕒 Creado</h6>
+                <p class="mb-0">
+                  {{ planta().created_at }}
+                </p>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="d-flex justify-content-between mt-4">
+            <a routerLink="/plantes"
+               class="btn btn-outline-secondary"
+               href="#plantes">
+              ← Volver
+            </a>
+          </div>
+
+        </div>
+      </div>
+      <!-- {{ planta() | json }} -->
+    </div>
+  </div>
+</div>

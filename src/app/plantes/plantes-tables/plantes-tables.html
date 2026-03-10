@@ -1,0 +1,17 @@
+<table class="table table-dark table-borderless">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Nombre</th>
+      <th>Capacidad</th>
+      <th>Usuario</th>
+      <th>Latitud</th>
+      <th>Longitud</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for(planta of plantes(); track planta.id) {
+      <tr app-plantes-tables-row [plantaAlias]="planta"></tr>
+    }
+  </tbody>
+</table>
