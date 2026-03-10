@@ -1,7 +1,7 @@
 <div class="card h-100 shadow-sm border-0">
   <div class="d-flex align-items-center justify-content-center bg-light"
        style="height: 180px;">
-    <img 
+    <img
       src="{{ planta().foto }}"
       alt="{{ planta().nom }}"
       class="img-fluid"
@@ -15,18 +15,20 @@
     </h5>
 
     <p class="card-text text-muted text-center small">
-      📍 <span class="fw-bold">{{ planta().ubicacio.latitude }}</span>, 
-        <span class="fw-bold">{{ planta().ubicacio.longitude }}</span>
+      <span class="fw-bold">{{ planta().capacitat }} kW</span>
     </p>
 
+    <p class="card-text text-muted text-center small">
+      <span class="fw-bold">{{ planta().ubicacio.latitude }}</span>,
+      <span class="fw-bold">{{ planta().ubicacio.longitude }}</span>
+    </p>
 
     <div class="mt-auto text-center">
       <a
         class="btn btn-outline-primary btn-sm w-100"
         href="#planta/{{ planta().id }}">
-        Ver detalles
+        Veure detall
       </a>
     </div>
-
   </div>
 </div>

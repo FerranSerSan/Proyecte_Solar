@@ -1,55 +1,85 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">Navbar</a>
+<nav class="navbar navbar-expand-lg navbar-light">
+  <div class="container">
 
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <a class="navbar-brand d-flex align-items-center gap-2" href="#">
+      <span class="brand-leaf">✦</span>
+      <span class="brand-name">Projecte Solar</span>
+    </a>
+
+    <button class="navbar-toggler border-0 shadow-none" type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active" href="#home">Home</a>
-        </li>
+
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0 align-items-lg-center">
 
         <li class="nav-item">
-          <a class="nav-link active" href="#login">Login</a>
+          <a class="nav-link" href="#home">Inici</a>
         </li>
 
-        <li class="nav-item">
-          <a class="nav-link active" href="#register">Register</a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link active" href="#" (click)="logout(); $event.preventDefault()">Logout</a>
-        </li>
+        <li class="nav-item nav-divider d-none d-lg-block"></li>
 
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown">
-            Plantes
+          <a class="nav-link dropdown-toggle" href="#"
+            id="navbarDropdown" role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false">
+            Instal·lacions
           </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#plantes">Llista</a></li>
-            <li><a class="dropdown-item" href="#plantesTables">Taula</a></li>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li>
+              <a class="dropdown-item" href="#plantes">
+                <span class="dropdown-icon">⊞</span> Llista
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="#plantesTables">
+                <span class="dropdown-icon">☰</span> Taula
+              </a>
+            </li>
           </ul>
         </li>
+
       </ul>
 
-      @if (session()!= null) {
-        <span class="navbar-text me-3">
-          Logged in as {{ session()!.user.email }}
-        </span>
-      }
-      
+      <div class="d-flex align-items-center gap-3 flex-wrap">
 
-      <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"
-        [(ngModel)]="searchString"
-        [ngModelOptions]="{standalone: true}"
-        (ngModelChange)="search($event)"/>
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
+        @if (session()!= null) {
+          <span class="session-badge">
+            <span class="session-dot"></span>
+            {{ session()!.user.email }}
+          </span>
+        }
+
+        @if (session() == null) {
+          <a class="nav-link nav-auth" href="#login">Entrar</a>
+          <a class="btn btn-primary btn-sm" href="#register">Registrar-se</a>
+        } @else {
+          <a class="nav-link nav-auth text-muted" href="#"
+            (click)="logout(); $event.preventDefault()">
+            Eixir
+          </a>
+        }
+
+        <div class="search-wrapper d-flex align-items-center">
+          <input
+            class="form-control search-input"
+            type="search"
+            placeholder="Cerca…"
+            aria-label="Search"
+            [(ngModel)]="searchString"
+            [ngModelOptions]="{standalone: true}"
+            (ngModelChange)="search($event)"
+          />
+        </div>
+
+      </div>
     </div>
   </div>
 </nav>
